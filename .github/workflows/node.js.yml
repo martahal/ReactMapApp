@@ -35,6 +35,6 @@ jobs:
         npm run deploy
       env:
         user_name: 'Ettellerannet'
-        user_email: 'Ettellerannet@epost.no':
+        user_email: 'Ettellerannet@epost.no'
         github_token: ${{ secrets.ACTIONS_DEPLOY_ACCESS_TOKEN }}
         repository: ${{ github.repository }}
