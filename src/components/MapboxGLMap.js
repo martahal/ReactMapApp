@@ -8,6 +8,14 @@ const styles = {
   position: "absolute"
 };
 
+const mapStyle = { //Sjekk mapboxdokumentasjon
+  position: 'absolute', 
+  backround: 'white',
+  zIndex: 1,
+  padding: 10,
+  display: 'flex',
+};
+
 const MapboxGLMap = () => {
   const [map, setMap] = useState(null);
   const mapContainer = useRef(null);
@@ -17,7 +25,7 @@ const MapboxGLMap = () => {
     const initializeMap = ({ setMap, mapContainer }) => {
       const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
+        style: "mapbox://styles/mapbox/dark-v10", // stylesheet location
         center: [10.408773,63.422091],
         zoom: 5
       });
@@ -31,7 +39,12 @@ const MapboxGLMap = () => {
     if (!map) initializeMap({ setMap, mapContainer });
   }, [map]);
 
-  return <div ref={el => (mapContainer.current = el)} style={styles} />;
+  return(
+    <div>
+      <div>style ={mapStyle}</div>
+      <div ref={el => (mapContainer.current = el)} style={styles} />;
+    </div>
+  ) 
 };
 
 export default MapboxGLMap;
